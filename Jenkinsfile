@@ -5,12 +5,7 @@ pipeline {
             steps {
                 bat 'mvn clean package'
             }
-            post {
-                success {
-                    echo "Now Archiving the Artifacts...."
-                    archiveArtifacts artifacts: '**/*.war'
-                }
-            }
+            
         }
 
         stage('Create Tomcat Docker Image'){
