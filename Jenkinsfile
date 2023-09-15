@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage('Build Application') {
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
             
         }
 
         stage('Create Tomcat Docker Image'){
             steps {
-                bat "docker build -t tomcatsamplewebapp:${env.BUILD_ID} ."
+                sh "docker build -t tomcatsamplewebapp:${env.BUILD_ID} ."
             }
         }
 
